@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="/" class="home-link">Home</a>
+      <a href="/checkout" class="cart-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M6 6h15l-1.5 9h-13z" />
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="18" cy="21" r="1" />
+        </svg>
+        <span id="cart-count"
+          ><%= session.cart ? session.cart.reduce((acc, item) => acc +
+          item.quantity, 0) : 0 %></span
+        >
+      </a>
+    </header>
+
+    <div class="item-page">
+      <div class="carousel">
+        <button id="prev" class="arrow">&lt;</button>
+        <img
+          id="product-image"
+          src="<%= product.images[0] %>"
+          alt="<%= product.name %>"
+        />
+        <button id="next" class="arrow">&gt;</button>
+      </div>
+
+      <div class="details">
+        <h1><%= product.name.toUpperCase() %></h1>
+        <p class="price">€<%= product.price %></p>
+
+        <div class="sizes">
+          <button class="size-btn">S</button>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+        </div>
+
+        <form action="/add-to-cart" method="POST">
+          <input type="hidden" name="productId" value="<%= product.id %>" />
+          <input type="hidden" id="selectedSize" name="size" value="" />
+          <button id="addToBag" class="add-button" type="submit">
+            Add to bag
+          </button>
+        </form>
+
+        <% if (addedToCart) { %>
+        <div class="added-message">
+          <p>Product added to cart!</p>
+          <a href="/checkout" class="go-checkout-btn">Go to Checkout</a>
+          <a href="/" class="continue-shopping-btn">Continue Shopping</a>
+        </div>
+        <% } %>
+
+        <h3>Details</h3>
+        <p class="description"><%= product.description %></p>
+      </div>
+    </div>
+
+    <div class="reviews-container">
+      <h3>Reviews</h3>
+
+      <% if (productReviews.length > 0) { %> <% productReviews.forEach(review =>
+      { %>
+      <div class="review-card">
+        <strong><%= review.name %></strong>
+        <p><%= review.content %></p>
+      </div>
+      <% }) %> <% } else { %>
+      <p class="no-reviews-text">No reviews yet. Be the first to write one!</p>
+      <% } %>
+
+      <form
+        class="review-form"
+        method="POST"
+        action="/item/<%= product.id %>/review"
+      >
+        <input type="text" name="name" placeholder="Your name" required />
+        <textarea
+          name="content"
+          rows="3"
+          placeholder="Your review"
+          required
+        ></textarea>
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <hr />
+      <div class="footer-links">
+        <a href="#" id="terms-link">Terms</a>
+        <a href="#" id="privacy-link">Privacy</a>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <h2 id="modal-title">Title</h2>
+        <p id="modal-text">Content</p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = JSON.parse(`<%- JSON.stringify(product.images) %>`);
+        let current = 0;
+        const imgElement = document.getElementById("product-image");
+
+        document.getElementById("prev").addEventListener("click", () => {
+          current = (current - 1 + images.length) % images.length;
+          imgElement.src = images[current];
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+          current = (current + 1) % images.length;
+          imgElement.src = images[current];
+        });
+
+        const sizeButtons = document.querySelectorAll(".size-btn");
+        const sizeInput = document.getElementById("selectedSize");
+
+        sizeButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            sizeButtons.forEach((b) => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            sizeInput.value = btn.textContent;
+          });
+        });
+
+        // Modal Terms / Privacy
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalText = document.getElementById("modal-text");
+        const closeBtn = document.getElementById("close");
+
+        document
+          .getElementById("terms-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            modalTitle.textContent = "Terms and Conditions";
+            modalText.textContent =
+              "Last updated March 5, 2024. Please read carefully.";
+            modal.style.display = "block";
+          });
+
+        document
+          .getElementById("privacy-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            modalTitle.textContent = "Privacy Policy";
+            modalText.textContent =
+              "Last updated October 9, 2024. We respect your privacy.";
+            modal.style.display = "block";
+          });
+
+        closeBtn.onclick = function () {
+          modal.style.display = "none";
+        };
+        window.onclick = function (e) {
+          if (e.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

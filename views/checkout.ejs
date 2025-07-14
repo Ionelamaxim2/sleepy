@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      input.error,
+      select.error {
+        border: 2px solid red;
+      }
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 2px;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="/" class="home-link">Home</a>
+      <a href="/checkout" class="cart-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M6 6h15l-1.5 9h-13z" />
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="18" cy="21" r="1" />
+        </svg>
+        <span id="cart-count">
+          <%= cart.reduce((acc, item) => acc + item.quantity, 0) %>
+        </span>
+      </a>
+    </header>
+
+    <div class="checkout-container">
+      <div class="checkout-left">
+        <h1>SLEEPY</h1>
+        <% if (cart.length > 0) { %>
+        <div class="cart-items-scrollable">
+          <% cart.forEach(item => { %>
+          <div class="cart-item">
+            <img src="<%= item.images[0] %>" alt="<%= item.name %>" />
+            <div class="cart-info">
+              <h2><%= item.name %></h2>
+              <p>Size: <%= item.size %></p>
+              <p>Price: €<%= item.price %></p>
+              <form action="/remove-from-cart" method="POST">
+                <input type="hidden" name="productId" value="<%= item.id %>" />
+                <input type="hidden" name="size" value="<%= item.size %>" />
+                <button type="submit" class="remove-btn">Remove</button>
+              </form>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <div class="summary-box">
+          <p>Subtotal: €<%= subtotal %></p>
+          <p>Shipping: €0</p>
+          <strong>Total: €<%= subtotal %></strong>
+        </div>
+        <% } else { %>
+        <p>Your cart is empty.</p>
+        <% } %>
+      </div>
+
+      <div class="checkout-right">
+        <h3>SHIPPING</h3>
+        <form action="/submit-order" method="POST">
+          <input type="email" placeholder="Email" required />
+          <span class="error-message"></span>
+
+          <input type="text" placeholder="Full Name" required />
+          <span class="error-message"></span>
+
+          <input type="text" placeholder="Address" required />
+          <span class="error-message"></span>
+
+          <div class="form-row">
+            <select name="country" required>
+              <option value="">Country</option>
+              <option value="Romania">Romania</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Italy">Italy</option>
+              <option value="Spain">Spain</option>
+            </select>
+            <span class="error-message"></span>
+
+            <input type="text" placeholder="City" required />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-row">
+            <input type="text" placeholder="Postal Code" required />
+            <span class="error-message"></span>
+
+            <input type="text" placeholder="Phone Number" required />
+            <span class="error-message"></span>
+          </div>
+
+          <button type="submit" class="submit-btn">SUBMIT</button>
+          <div class="form-links">
+            <a href="#" id="terms-link">Terms</a>
+            <a href="#" id="privacy-link">Privacy</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <h2 id="modal-title">Title</h2>
+        <p id="modal-text">Content</p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalText = document.getElementById("modal-text");
+        const closeBtn = document.getElementById("close");
+        const termsLink = document.getElementById("terms-link");
+        const privacyLink = document.getElementById("privacy-link");
+        const form = document.querySelector("form");
+
+        termsLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          modalTitle.textContent = "Terms and Conditions";
+          modalText.textContent =
+            "Last updated March 5, 2024. Welcome to the Sleepy website. Please read these terms carefully before using the platform.";
+          modal.style.display = "block";
+        });
+
+        privacyLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          modalTitle.textContent = "Privacy Policy";
+          modalText.textContent =
+            "Last updated October 9, 2024. We believe that your privacy and data security are very important. Please read our policy carefully.";
+          modal.style.display = "block";
+        });
+
+        closeBtn.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        window.onclick = function (e) {
+          if (e.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+
+        form.addEventListener("submit", function (e) {
+          let valid = true;
+          const inputs = form.querySelectorAll("input, select");
+          inputs.forEach((input) => {
+            const errorMsg = input.nextElementSibling;
+            if (!errorMsg || !errorMsg.classList.contains("error-message"))
+              return;
+
+            input.classList.remove("error");
+            errorMsg.textContent = "";
+
+            if (!input.value.trim()) {
+              input.classList.add("error");
+              errorMsg.textContent = "This field is required.";
+              valid = false;
+            }
+          });
+
+          if (!valid) {
+            e.preventDefault();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

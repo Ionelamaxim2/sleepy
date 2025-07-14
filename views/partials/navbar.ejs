@@ -1,0 +1,22 @@
+<header class="navbar">
+  <a href="/" class="home-link">Home</a>
+  <a href="/checkout" class="cart-icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="28"
+      height="28"
+      fill="none"
+      stroke="black"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+    >
+      <path d="M6 6h15l-1.5 9h-13z" />
+      <circle cx="9" cy="21" r="1" />
+      <circle cx="18" cy="21" r="1" />
+    </svg>
+    <span id="cart-count"
+      ><%= session.cart ? session.cart.reduce((acc, item) => acc +
+      item.quantity, 0) : 0 %></span
+    >
+  </a>
+</header>

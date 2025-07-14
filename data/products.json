@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Oversized Sleep Set",
+    "price": 102,
+    "description": "Chic style meets airy comfort in this oversized striped sleep set made with our signature Cotton Poplin. Includes a long sleeve button-up shirt with an embroidered chest pocket. The pant features a thin elastic waistband with picot trim, front buttons, and side pockets. Fits true to size.",
+    "images": ["/images/long.jpg", "/images/long2.jpg", "/images/long3.jpg"]
+  },
+  {
+    "id": 2,
+    "name": "Feel Special Set",
+    "price": 160,
+    "description": "All set for spring. This relaxed-fit cami and short duo is made from our cherry blossom tulle and adorned with rosette and bow detailing for flirty flair. Features thin, adjustable straps, dainty picot trim, and a 100% cotton gusset. Fits true to size.",
+    "images": ["/images/sexy.jpg", "/images/sexy2.jpg", "/images/sexy3.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "Short Sleep Set",
+    "price": 60,
+    "description": "Meet the ultra-soft sleep set of your dreams. This classic button-up sleepwear top and fitted shorts have a classic look and ultra-comfortable feel. Features chest pocket details and interior drawstrings. Fits true to size.",
+    "images": ["/images/short.jpg", "/images/short2.jpg", "/images/short3.jpg"]
+  }
+]

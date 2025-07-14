@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #f9f8f6;
+        color: #333;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .confirmation-box {
+        text-align: center;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 90%;
+      }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        background: #f1f1f1;
+        margin: 8px 0;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      h3 {
+        margin-top: 20px;
+      }
+      a {
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+      a:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="confirmation-box">
+      <h1>Thank you for your order! 💖</h1>
+      <h2>Order summary:</h2>
+      <% if (order.cart.length > 0) { %>
+      <ul>
+        <% order.cart.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong><br />
+          Size: <%= item.size %> — €<%= item.price %> x <%= item.quantity %>
+        </li>
+        <% }) %>
+      </ul>
+      <h3>Total: €<%= order.total %></h3>
+      <% } else { %>
+      <p>Your order was empty.</p>
+      <% } %>
+
+      <a href="/invoice" target="_blank">Download Invoice (PDF)</a>
+      <a href="/">Continue shopping</a>
+    </div>
+  </body>
+</html>
+```
