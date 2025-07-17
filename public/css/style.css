@@ -11,10 +11,10 @@
   position: relative;
 }
 body.dark-mode .START {
-  background-image: url("/images/nou-dark.png");
+  background-image: url("/images/nou.png");
 }
 .start-overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* negru semi-transparent */
+  background-color: transparent;
   padding: 60px;
   border-radius: 12px;
 }
@@ -36,9 +36,10 @@ body {
 .START h1 {
   font-size: 140px;
   margin: 0;
-  color: black;
+  color: white;
   font-family: serif;
   font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .START h2 {
@@ -48,6 +49,7 @@ body {
   max-width: 600px;
   color: white;
   line-height: 1.4;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .PijamasOur h1 {
@@ -778,66 +780,46 @@ body {
   transition: all 0.3s ease;
 }
 
-body.dark-mode {
-  background-color: #1e1e1e;
-  color: #f2f2f2;
-}
-
-body.dark-mode .navbar {
-  background-color: #292929;
-  border-bottom: 1px solid #444;
-}
-
-body.dark-mode .navbar a,
-body.dark-mode .navbar button,
-body.dark-mode .cart-icon svg {
-  color: #f2f2f2;
-  stroke: #f2f2f2;
-}
-
-body.dark-mode #toggle-dark {
-  background-color: #444;
-  color: #fff;
-  border: none;
-}
-
-body.dark-mode .start-overlay,
-body.dark-mode .footer,
-body.dark-mode .footer-brand-message,
-body.dark-mode .lets-chat-section {
-  background-color: #2a2a2a;
-  color: #eaeaea;
-}
-
-body.dark-mode a {
-  color: #fcfcfc;
-}
-
-body.dark-mode .product-box {
-  background-color: #333;
-  border: 1px solid #555;
-}
-#toggle-dark {
-  background: none;
-  border: 2px solid #7b4f26;
-  color: #7b4f26;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#toggle-dark:hover {
-  background-color: #7b4f26;
-  color: white;
-}
-body.dark-mode .home-link {
+body.dark-mode .PijamasOur h1 {
   color: white;
 }
 
-body.dark-mode .footer-links a {
+body.dark-mode .START h1,
+body.dark-mode .START h2 {
   color: white;
 }
+
+body.dark-mode .left-title h1,
+body.dark-mode .info-title,
+body.dark-mode .info-content {
+  color: white;
+}
+
+body.dark-mode .footer-brand-message {
+  color: white;
+}
+
+body.dark-mode .details h1,
+body.dark-mode .details h3,
+body.dark-mode .price,
+body.dark-mode .description {
+  color: white;
+}
+
+body.dark-mode .reviews-container h3,
+body.dark-mode .review-card strong,
+body.dark-mode .review-card p,
+body.dark-mode .no-reviews-text {
+  color: white;
+}
+
+body.dark-mode .checkout-left h1,
+body.dark-mode .summary-box,
+body.dark-mode .summary-box p,
+body.dark-mode .summary-box strong {
+  color: white;
+}
+
 body.dark-mode .checkout-right,
 body.dark-mode .checkout-right input,
 body.dark-mode .checkout-right select,
@@ -847,14 +829,20 @@ body.dark-mode .checkout-right label {
   background-color: #1e1e1e;
   border-color: #555;
 }
+
 body.dark-mode .go-checkout-btn,
 body.dark-mode .continue-shopping-btn {
   background-color: transparent;
   color: white;
   border: 2px solid white;
 }
+
 body.dark-mode .go-checkout-btn:hover,
 body.dark-mode .continue-shopping-btn:hover {
   background-color: white;
   color: black;
+}
+
+body.dark-mode .form-links a {
+  color: white;
 }
