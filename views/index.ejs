@@ -24,14 +24,14 @@
           <circle cx="9" cy="21" r="1" />
           <circle cx="18" cy="21" r="1" />
         </svg>
-        <span id="cart-count"
-          ><%= session.cart ? session.cart.reduce((acc, item) => acc +
-          item.quantity, 0) : 0 %></span
-        >
+        <span id="cart-count">
+          <%= session.cart ? session.cart.reduce((acc, item) => acc +
+          item.quantity, 0) : 0 %>
+        </span>
       </a>
     </header>
 
-    <div class="START">
+    <div class="START fade-in">
       <div class="start-overlay">
         <h1>Sleepy</h1>
         <h2>
@@ -41,11 +41,11 @@
       </div>
     </div>
 
-    <div class="PijamasOur">
+    <div class="PijamasOur fade-in">
       <h1>Our Pijamas</h1>
     </div>
 
-    <div class="products-grid">
+    <div class="products-grid fade-in">
       <% products.forEach(product => { %>
       <a href="/item/<%= product.id %>" class="product-box">
         <img src="<%= product.images[0] %>" alt="<%= product.name %>" />
@@ -59,7 +59,7 @@
       <% }) %>
     </div>
 
-    <div class="lets-chat-section">
+    <div class="lets-chat-section fade-in">
       <div class="left-title">
         <h1>Let's Chat</h1>
       </div>
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div class="footer-brand-message">
+    <div class="footer-brand-message fade-in">
       SLEEPY is a solutions oriented brand creating the next generation of
       underwear, clothing and shapewear.
     </div>
