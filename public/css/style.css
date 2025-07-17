@@ -884,3 +884,34 @@ body.dark-mode header.navbar a.home-link {
 body.dark-mode .footer-links a {
   color: white;
 }
+body.dark-mode .home-link {
+  background-color: black;
+  color: white !important;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+body.dark-mode .lets-chat-section {
+  background: #121212;
+}
+
+body.dark-mode .right-info,
+body.dark-mode .left-title h1 {
+  color: white;
+}
+body.dark-mode .reviews-container {
+  background-color: #1e1e1e;
+  border-color: #555;
+}
+body.dark-mode .reviews-container h3,
+body.dark-mode .review-card strong,
+body.dark-mode .review-card p,
+body.dark-mode .no-reviews-text {
+  color: white;
+}
+body.dark-mode .review-form input,
+body.dark-mode .review-form textarea {
+  background-color: #2a2a2a;
+  color: white;
+  border-color: #555;
+}
