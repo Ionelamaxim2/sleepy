@@ -918,3 +918,9 @@ body.dark-mode .review-form textarea {
 body.dark-mode .footer hr {
   border-top: 1px solid #444;
 }
+body.dark-mode .footer {
+  background-color: black;
+}
+body.dark-mode .footer-links a {
+  color: white;
+}
