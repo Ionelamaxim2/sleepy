@@ -769,18 +769,60 @@ body {
   color: black;
   transition: all 0.3s ease;
 }
-
+/* Tema dark globală */
 body.dark-mode {
-  background-color: #121212;
-  color: white;
+  background-color: #1e1e1e;
+  color: #f2f2f2;
 }
 
-button#toggle-dark {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 8px 16px;
+/* Navbar în dark mode */
+body.dark-mode .navbar {
+  background-color: #292929;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .navbar a,
+body.dark-mode .navbar button,
+body.dark-mode .cart-icon svg {
+  color: #f2f2f2;
+  stroke: #f2f2f2;
+}
+
+/* Schimbare fundal buton dark mode */
+body.dark-mode #toggle-dark {
+  background-color: #444;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+}
+
+/* Alte elemente dark (opțional) */
+body.dark-mode .start-overlay,
+body.dark-mode .footer,
+body.dark-mode .footer-brand-message,
+body.dark-mode .lets-chat-section {
+  background-color: #2a2a2a;
+  color: #eaeaea;
+}
+
+body.dark-mode a {
+  color: #ffd700; /* Auriu pal pentru linkuri */
+}
+
+body.dark-mode .product-box {
+  background-color: #333;
+  border: 1px solid #555;
+}
+#toggle-dark {
+  background: none;
+  border: 2px solid #7b4f26;
+  color: #7b4f26;
+  padding: 6px 12px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#toggle-dark:hover {
+  background-color: #7b4f26;
+  color: white;
 }

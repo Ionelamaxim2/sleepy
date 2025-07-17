@@ -146,21 +146,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server started on port " + port);
 });
-const toggleBtn = document.getElementById("toggle-dark");
-
-toggleBtn.addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-});
-
-window.addEventListener("load", function () {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-  }
-});
