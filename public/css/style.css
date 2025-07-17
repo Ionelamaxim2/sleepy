@@ -764,13 +764,12 @@ body {
   color: black;
   transition: all 0.3s ease;
 }
-/* DARK MODE: Fundal general + text */
+
 body.dark-mode {
   background-color: #121212;
   color: white;
 }
 
-/* DARK MODE: START section */
 body.dark-mode .START h1 {
   color: black !important;
 }
@@ -778,7 +777,6 @@ body.dark-mode .START h2 {
   color: white !important;
 }
 
-/* DARK MODE: Texte generale */
 body.dark-mode .PijamasOur h1,
 body.dark-mode .left-title h1,
 body.dark-mode .info-title,
@@ -799,7 +797,6 @@ body.dark-mode .summary-box strong {
   color: white;
 }
 
-/* DARK MODE: Formulare, checkout, review */
 body.dark-mode .checkout-right,
 body.dark-mode .checkout-right input,
 body.dark-mode .checkout-right select,
@@ -812,7 +809,6 @@ body.dark-mode .review-form textarea {
   border-color: #555;
 }
 
-/* DARK MODE: Butoane checkout */
 body.dark-mode .go-checkout-btn,
 body.dark-mode .continue-shopping-btn {
   background-color: transparent;
@@ -825,7 +821,6 @@ body.dark-mode .continue-shopping-btn:hover {
   color: black;
 }
 
-/* DARK MODE: Footer */
 body.dark-mode .footer {
   background-color: black;
 }
@@ -836,7 +831,6 @@ body.dark-mode .footer-links a {
   color: white;
 }
 
-/* DARK MODE: Navbar link */
 body.dark-mode header.navbar a.home-link {
   color: white;
   background-color: black;
@@ -845,7 +839,6 @@ body.dark-mode header.navbar a.home-link {
   border-radius: 10px;
 }
 
-/* DARK MODE: Let's chat */
 body.dark-mode .lets-chat-section {
   background: #121212;
 }
@@ -854,13 +847,11 @@ body.dark-mode .left-title h1 {
   color: white;
 }
 
-/* DARK MODE: Reviews container */
 body.dark-mode .reviews-container {
   background-color: #1e1e1e;
   border-color: #555;
 }
 
-/* DARK MODE: Modal Terms & Privacy */
 body.dark-mode .modal-content {
   background-color: #1e1e1e;
   color: white;
@@ -871,7 +862,6 @@ body.dark-mode #close {
   color: white;
 }
 
-/* THEME TOGGLE BUTTON - Centrat pe navbar */
 header.navbar {
   position: relative;
 }
