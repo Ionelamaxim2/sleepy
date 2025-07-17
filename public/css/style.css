@@ -764,3 +764,23 @@ select.error {
   background: #d09f90;
   transform: translateY(-2px);
 }
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+button#toggle-dark {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
