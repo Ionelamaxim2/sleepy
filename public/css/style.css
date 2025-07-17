@@ -915,3 +915,6 @@ body.dark-mode .review-form textarea {
   color: white;
   border-color: #555;
 }
+body.dark-mode .footer hr {
+  border-top: 1px solid #444;
+}
