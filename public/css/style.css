@@ -764,12 +764,13 @@ body {
   color: black;
   transition: all 0.3s ease;
 }
-
+/* DARK MODE: Fundal general + text */
 body.dark-mode {
   background-color: #121212;
   color: white;
 }
 
+/* DARK MODE: START section */
 body.dark-mode .START h1 {
   color: black !important;
 }
@@ -777,31 +778,20 @@ body.dark-mode .START h2 {
   color: white !important;
 }
 
-body.dark-mode .PijamasOur h1 {
-  color: white;
-}
-
+/* DARK MODE: Texte generale */
+body.dark-mode .PijamasOur h1,
 body.dark-mode .left-title h1,
 body.dark-mode .info-title,
 body.dark-mode .info-content,
-body.dark-mode .footer-brand-message {
-  color: white;
-}
-
+body.dark-mode .footer-brand-message,
 body.dark-mode .details h1,
 body.dark-mode .details h3,
 body.dark-mode .price,
-body.dark-mode .description {
-  color: white;
-}
-
+body.dark-mode .description,
 body.dark-mode .reviews-container h3,
 body.dark-mode .review-card strong,
 body.dark-mode .review-card p,
-body.dark-mode .no-reviews-text {
-  color: white;
-}
-
+body.dark-mode .no-reviews-text,
 body.dark-mode .checkout-left h1,
 body.dark-mode .summary-box,
 body.dark-mode .summary-box p,
@@ -809,16 +799,20 @@ body.dark-mode .summary-box strong {
   color: white;
 }
 
+/* DARK MODE: Formulare, checkout, review */
 body.dark-mode .checkout-right,
 body.dark-mode .checkout-right input,
 body.dark-mode .checkout-right select,
 body.dark-mode .checkout-right textarea,
-body.dark-mode .checkout-right label {
+body.dark-mode .checkout-right label,
+body.dark-mode .review-form input,
+body.dark-mode .review-form textarea {
   color: white;
   background-color: #1e1e1e;
   border-color: #555;
 }
 
+/* DARK MODE: Butoane checkout */
 body.dark-mode .go-checkout-btn,
 body.dark-mode .continue-shopping-btn {
   background-color: transparent;
@@ -831,11 +825,61 @@ body.dark-mode .continue-shopping-btn:hover {
   color: black;
 }
 
-body.dark-mode .form-links a {
+/* DARK MODE: Footer */
+body.dark-mode .footer {
+  background-color: black;
+}
+body.dark-mode .footer hr {
+  border-top: 1px solid #444;
+}
+body.dark-mode .footer-links a {
   color: white;
 }
 
+/* DARK MODE: Navbar link */
+body.dark-mode header.navbar a.home-link {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+/* DARK MODE: Let's chat */
+body.dark-mode .lets-chat-section {
+  background: #121212;
+}
+body.dark-mode .right-info,
+body.dark-mode .left-title h1 {
+  color: white;
+}
+
+/* DARK MODE: Reviews container */
+body.dark-mode .reviews-container {
+  background-color: #1e1e1e;
+  border-color: #555;
+}
+
+/* DARK MODE: Modal Terms & Privacy */
+body.dark-mode .modal-content {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #555;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode #close {
+  color: white;
+}
+
+/* THEME TOGGLE BUTTON - Centrat pe navbar */
+header.navbar {
+  position: relative;
+}
 #toggle-dark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: white;
   border: 1px solid black;
   padding: 12px 24px;
@@ -848,111 +892,16 @@ body.dark-mode .form-links a {
 }
 #toggle-dark:hover {
   background: #f0f0f0;
-  transform: scale(1.05);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 #toggle-dark:active {
-  transform: scale(0.95);
+  transform: translate(-50%, -50%) scale(0.95);
 }
-
 body.dark-mode #toggle-dark {
   background: black;
   color: white;
   border: 1px solid white;
 }
-
 body.dark-mode #toggle-dark:hover {
   background: #222;
-}
-body.dark-mode #toggle-dark {
-  background: black;
-  color: white;
-  border: 1px solid white;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease-out;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: none;
-}
-body.dark-mode header.navbar a.home-link {
-  color: white;
-}
-body.dark-mode .footer-links a {
-  color: white;
-}
-body.dark-mode .home-link {
-  background-color: black;
-  color: white !important;
-  border: 2px solid white;
-  padding: 8px 16px;
-  border-radius: 10px;
-}
-body.dark-mode .lets-chat-section {
-  background: #121212;
-}
-
-body.dark-mode .right-info,
-body.dark-mode .left-title h1 {
-  color: white;
-}
-body.dark-mode .reviews-container {
-  background-color: #1e1e1e;
-  border-color: #555;
-}
-body.dark-mode .reviews-container h3,
-body.dark-mode .review-card strong,
-body.dark-mode .review-card p,
-body.dark-mode .no-reviews-text {
-  color: white;
-}
-body.dark-mode .review-form input,
-body.dark-mode .review-form textarea {
-  background-color: #2a2a2a;
-  color: white;
-  border-color: #555;
-}
-body.dark-mode .footer hr {
-  border-top: 1px solid #444;
-}
-body.dark-mode .footer {
-  background-color: black;
-}
-body.dark-mode .footer-links a {
-  color: white;
-}
-.centered-theme-btn {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2000;
-  background: white;
-  border: 2px solid black;
-  padding: 16px 32px;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 15px;
-  cursor: pointer;
-  box-shadow: 3px 3px 0 black;
-}
-body.dark-mode .centered-theme-btn {
-  background: black;
-  color: white;
-  border: 2px solid white;
-}
-body.dark-mode .modal-content {
-  background-color: #1e1e1e;
-  color: white;
-  border: 1px solid #555;
-}
-
-body.dark-mode #close {
-  color: white;
-}
-.modal-content {
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
